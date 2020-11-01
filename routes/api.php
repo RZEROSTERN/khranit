@@ -19,8 +19,15 @@ Route::post('register', 'UserController@register');
 Route::post('refreshtoken', 'UserController@refreshToken');
 
 Route::get('/unauthorized', 'UserController@unauthorized');
+
+Route::post('/employee/login', 'EmployeeController@login');
+Route::get('/employee/unauthorized', 'EmployeeController@unauthorized');
+
 Route::group(['middleware' => ['CheckClientCredentials','auth:api']], function() {
     Route::post('logout', 'UserController@logout');
     Route::post('details', 'UserController@details');
+});
+
+Route::group(['middleware' => ['CheckClientCredentials', 'auth:api-employee']], function() {
     Route::get('products', 'ProductsController@getProducts');
 });
