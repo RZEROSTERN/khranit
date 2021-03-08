@@ -26,8 +26,14 @@ Route::get('/employee/unauthorized', 'EmployeeController@unauthorized');
 Route::group(['middleware' => ['CheckClientCredentials','auth:api']], function() {
     Route::post('logout', 'UserController@logout');
     Route::post('details', 'UserController@details');
+    Route::post('pay', 'PaymentsController@pay');
 });
 
 Route::group(['middleware' => ['CheckClientCredentials', 'auth:api-employee']], function() {
     Route::get('products', 'ProductsController@getProducts');
+    Route::post('products', 'ProductsController@insert');
+    Route::post('products', 'ProductsController@update');
+    Route::post('products', 'ProductsController@delete');              
+
+    Route::post('products/{id}', 'ProductsController@getSingleProduct');
 });
