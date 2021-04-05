@@ -33,7 +33,7 @@ Route::group(['middleware' => ['CheckClientCredentials', 'auth:api-employee']], 
     Route::get('products', 'ProductsController@getProducts');
     Route::post('products', 'ProductsController@insert');
     Route::post('products', 'ProductsController@update');
-    Route::post('products', 'ProductsController@delete');              
+    Route::post('products', 'ProductsController@delete');          
 
     Route::post('products/{id}', 'ProductsController@getSingleProduct');
 });
