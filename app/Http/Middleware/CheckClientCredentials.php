@@ -3,10 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Laminas\Diactoros\StreamFactory;
-use Laminas\Diactoros\ResponseFactory;
-use Laminas\Diactoros\UploadedFileFactory;
-use Laminas\Diactoros\ServerRequestFactory;
+use Nyholm\Psr7\Factory\Psr17Factory;
 use Laravel\Passport\Http\Middleware\CheckCredentials;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use Symfony\Bridge\PsrHttpMessage\Factory\PsrHttpFactory;
@@ -16,10 +13,10 @@ class CheckClientCredentials extends CheckCredentials
     public function handle($request, Closure $next, ...$scopes)
     {
         $psr = (new PsrHttpFactory(
-            new ServerRequestFactory,
-            new StreamFactory,
-            new UploadedFileFactory,
-            new ResponseFactory
+            new Psr17Factory,
+            new Psr17Factory,
+            new Psr17Factory,
+            new Psr17Factory
         ))->createRequest($request);
 
         try {
