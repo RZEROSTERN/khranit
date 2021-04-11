@@ -20,6 +20,7 @@ class CreateProductVarieties extends Migration
             $table->string('size');
             $table->string('others');
             $table->string('special_price');
+            $table->string('tax');
             $table->timestamp('created_at')->default(\DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(\DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
