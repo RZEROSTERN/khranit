@@ -9,7 +9,9 @@
 </head>
 <body>
     <main role="main" class="container-fluid" id="app">
-        @yield('content')
+        <khranit-header></khranit-header>
+            <router-view></router-view>
+        <khranit-footer></khranit-footer>
     </main>
     <script src="{{url("/js/app.js")}}"></script>
 </body>

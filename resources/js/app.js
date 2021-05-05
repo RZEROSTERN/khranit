@@ -9,9 +9,15 @@ require('./bootstrap');
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
+import Header from './sections/Header.vue';
+import Footer from './sections/Footer.vue';
 import HomeLayout from './layouts/HomeLayout.vue';
+import LoginLayout from './layouts/LoginLayout.vue';
 
 Vue.use(VueRouter);
+
+Vue.component('khranit-header', Header);
+Vue.component('khranit-footer', Footer);
 
 /**
  * The following block of code may be used to automatically register your
@@ -24,7 +30,8 @@ Vue.use(VueRouter);
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 const routes = [
-    { path: '/', component: HomeLayout, }
+    { path: '/', component: HomeLayout, },
+    { path: '/login', component: LoginLayout}
 ];
 const router = new VueRouter({ routes , mode: 'history', });
 

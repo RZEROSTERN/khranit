@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <router-view></router-view>
+    <khranit-header></khranit-header>
+        <router-view></router-view>
+    <khranit-footer></khranit-footer>
 @endsection
